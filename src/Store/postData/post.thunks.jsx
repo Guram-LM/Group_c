@@ -13,8 +13,13 @@ export const postThunk = createAsyncThunk(
                 },
                 body: JSON.stringify({data:[ormData]})
             })
-        } catch (error) {
+            if(!res.ko) throw new Error("Data was not sent");
+            const result = await res.json()
+
+            return ThunkAPI.fulfillWithValue(result)
             
+        } catch (error) {
+            return ThunkAPI.rejectWithValue(error)
         }
     }
 )

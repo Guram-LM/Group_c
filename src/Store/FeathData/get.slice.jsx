@@ -10,8 +10,8 @@ const initialState = {
 }
 
 
-const coffeeSlice = createSlice({
-    name: "coffee",
+const geteSlice = createSlice({
+    name: "get",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -50,4 +50,4 @@ const coffeeSlice = createSlice({
     
 })
 
-export default coffeeSlice.reducer
+export default geteSlice.reducer
