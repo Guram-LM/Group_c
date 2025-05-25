@@ -5,7 +5,7 @@ import { featchCoffee, featchIngredient } from "../Store/FeathData/feath.thunks"
 export const Admin = () => {
 
     const dispatch = useDispatch()
-    const {coffee, ingredient, loading, error} = useSelector(state => state.coffee)
+    const {coffee, ingredient, loading, error} = useSelector(state => state.get)
 
     useEffect(() => {
         dispatch(featchCoffee("coffee"))
