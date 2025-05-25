@@ -3,3 +3,84 @@
     padding: 0;
     box-sizing: border-box;
 }
+.seqtion{
+    display: flex;
+    height: 100vh;
+    height: 100%;
+    justify-content: center;
+}
+.coffeeCards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 1100px;
+    margin: 10px auto;
+    padding: 20px;
+    gap:20px;
+    background-color: rgb(224, 205, 181);
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+}
+.cardImg{
+    width: 100%;
+    height: 200px;
+}
+.cardImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.cardTitle{
+    font-size: 26px;
+    line-height: 25px;
+    font-weight: bold;
+    text-align: left;
+    color: #4a2e25;
+}
+span{
+
+font-weight: bold;
+color: #242424;
+}
+
+.cardContent{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+.buttonSection{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding:0 10px 10px;
+}
+.buttonstyle {
+    display: inline-block;
+    padding: 5px 15px;
+    color: white;
+    border-radius:10px ;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.collorLightBouwn{
+    background-color:#6f4439 ;
+}
+
+.collorbrown{
+    background-color:#8f6b5b ;
+}
+.collorRead{
+    background-color: #e15747;
+}
+.buttongap{
+    display: flex;
+    gap:5px;
+}
+
