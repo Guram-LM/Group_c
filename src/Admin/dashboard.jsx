@@ -4,9 +4,12 @@ import { useEffect } from "react"
 import css from "../style.module.css"
 import { Link } from "react-router-dom"
 import coffeeimg from "../assets/coffee.jpeg"
+import { useDeleteHook } from "../hook/deleteHok"
 
 
 export const Dashboard = () => {
+
+    const {deleteItem, error:deleteError, loading:deleteLoading} = useDeleteHook("coffee")
 
     const {coffee,ingredient, loading, error } = useSelector(state => state.get)
     const dispatch =useDispatch()
@@ -18,7 +21,7 @@ export const Dashboard = () => {
 
 
 
-    if(loading) return <h1> Loading ...</h1>
+    if(loading || deleteLoading) return <h1> Loading ...</h1>
     if(error) return <h1>{error.message}</h1>
 
 
@@ -36,7 +39,7 @@ export const Dashboard = () => {
 
                     <div className={css.cardContent}>
                         <h1 className={css.cardTitle}> {ingr.data.name}</h1>  
-<                       p> {ingr.data.Description}</p>
+                        <p>{ingr.data.Description}</p>
                         <div>
                             
                             <p><span>Origin: </span> {ingr.data.Country}</p> 
@@ -50,7 +53,7 @@ export const Dashboard = () => {
                         <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorLightBouwn}`}>View More</Link>
                         <div className={css.buttongap}>
                             <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorbrown}`}>Edit</Link>
-                            <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorRead}`}>Delete</Link>
+                            <Link  onClick={() => deleteItem({id: ingr.id, resource:"coffee"})}  className={`${css.buttonstyle } ${ css.collorRead}`}>Delete</Link>
                         </div>
                         
                     </div>
