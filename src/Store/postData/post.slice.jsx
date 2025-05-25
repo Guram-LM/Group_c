@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit"
 import { postThunk } from "./post.thunks"
 
 const initialState = {
-    newItem: null,
     loading: false,
     error: null
 }
@@ -19,7 +18,6 @@ const postSlice = createSlice({
         })
         .addCase(postThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.newItem = action.payload;
             state.error = null;
         })
         .addCase(postThunk.rejected, (state, action) => {
