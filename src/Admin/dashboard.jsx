@@ -1,5 +1,65 @@
+import { useDispatch, useSelector } from "react-redux"
+import { featchCoffee } from "../Store/FeathData/feath.thunks"
+import { useEffect } from "react"
+import css from "../style.module.css"
+import { Link } from "react-router-dom"
+import coffeeimg from "../assets/coffee.jpeg"
+
+
 export const Dashboard = () => {
+
+    const {coffee,ingredient, loading, error } = useSelector(state => state.get)
+    const dispatch =useDispatch()
+
+    useEffect(() => {
+        dispatch(featchCoffee("coffee"))
+    },[] )
+    console.log(coffee)
+
+
+
+    if(loading) return <h1> Loading ...</h1>
+    if(error) return <h1>{error.message}</h1>
+
+
+
     return(
-        <div>hi</div>
+
+            <div className={css.coffeeCards}>
+
+            {coffee.map((ingr) => (
+                <div key={ingr.id} className={css.card}> 
+                    <div className={css.cardImg}>
+                        <img src={ingr.data.img || coffeeimg} alt="img" />
+                    </div>
+
+
+                    <div className={css.cardContent}>
+                        <h1 className={css.cardTitle}> {ingr.data.name}</h1>  
+<                       p> {ingr.data.Description}</p>
+                        <div>
+                            
+                            <p><span>Origin: </span> {ingr.data.Country}</p> 
+                            <p><span>Caffeine: </span>{ingr.data.weight}</p> 
+                            <p><span>Price: </span>{ingr.data.price}</p>
+                        </div>
+    
+                    </div>
+
+                    <div className={css.buttonSection}>
+                        <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorLightBouwn}`}>View More</Link>
+                        <div className={css.buttongap}>
+                            <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorbrown}`}>Edit</Link>
+                            <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorRead}`}>Delete</Link>
+                        </div>
+                        
+                    </div>
+                    
+            </div>
+            ))}
+            
+            
+            </div>
+    
     )
 }
