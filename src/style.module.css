@@ -16,7 +16,7 @@
     margin: 10px auto;
     padding: 20px;
     gap:20px;
-    background-color: rgb(224, 205, 181);
+    background-color: #fdf6f0
 }
 .card{
     display: flex;
@@ -60,7 +60,8 @@ color: #242424;
     width: 100%;
     padding:0 10px 10px;
 }
-.buttonstyle {
+.buttonstyle,
+.validationButton {
     display: inline-block;
     padding: 5px 15px;
     color: white;
@@ -84,3 +85,188 @@ color: #242424;
     gap:5px;
 }
 
+
+/* form-ის სტილები */
+
+.formsecton{
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    margin: 0px auto;
+    gap: 20px;
+    border-radius: 15px;
+    background-color: white;
+    padding: 30px 20px;
+    
+}
+.formsecton button{
+    width: 120px;
+    padding: 10px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.formSection1,
+.formSection3{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  
+}
+.formsecton input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(175, 170, 170);
+}
+.formSection1 input,
+.formSection3 input {
+    width: 400px;
+}
+.formSection2 input{
+    min-height: 130px;
+    padding: 0 10px;
+}
+.ingredientsSection{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 130px;
+    border-radius: 10px;
+    border: 1px solid rgb(175, 170, 170);
+    margin-bottom: 10px;
+}
+
+
+/* admin page */
+.adminPage{
+    display: flex;
+    flex-direction: row;
+    width: 100vh;
+    height: 100%;
+    
+}
+.outletSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #fdf6f0;
+}
+
+.sidbarsection{
+    display: flex;
+    width: 250px;
+}
+
+/* sidbar style */
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap:20px ;
+    height: 100%;
+    width:500px ;
+    background-color: #785449 ;
+}
+.sidbarContant{
+    display: flex;
+    flex-direction: column;
+    padding: 45px 20px;
+    border-bottom:0.1px  solid #968888;
+    gap:10px;
+
+}
+.sidbarTitle{
+    text-align: center;
+    color: white;
+    letter-spacing: 2px;
+
+}
+.navSidbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px ;
+}
+.navButuon{
+    color: white;
+    letter-spacing: 2px;
+    padding: 10px 0 10px 20px;
+
+}
+.navButuon:hover{
+    background-color: #8f6b5b;
+}
+
+.dashboardheader{
+   display: flex;
+    justify-content: space-between;
+    width: 1100px;
+    margin: 10px auto;
+    padding: 20px;
+    color: #8f6b5b;
+    border-bottom:0.1px  solid #b9acac;
+    align-items: center; 
+}
+.manage{
+    width: 150px !important;
+    
+}
+
+
+/* validation Page */
+.validationPage {
+    background-image: url("../src/assets/coffee.jpeg"); 
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100vw;
+}
+
+.validationInpute{
+    position: absolute;
+    width: 450px;
+    background-color:transparent;
+    border-radius: 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.validationInpute input{
+    padding: 10px 20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 70%;
+    background-color: rgb(214, 218, 195);;
+}
+.validationInpute h2{
+
+    color: rgb(214, 218, 195);
+}
+.validationButton{
+    padding: 10px 20px;
+    color: #242424;
+    font-weight: bolder;
+    font-size: 13px;
+    width: 150px;
+    background-color: rgb(214, 218, 195);;
+}
+.selectstyle{
+    width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(175, 170, 170);
+}
+    

@@ -2,6 +2,8 @@ import { useState } from "react"
 import { CofeeForm } from "./cofeeForm"
 import { useDispatch, useSelector } from "react-redux"
 import { postThunk } from "../Store/postData/post.thunks"
+import css from "../style.module.css"
+import { Link } from "react-router-dom"
 
 export const AddCaffee = () => {
 
@@ -49,8 +51,20 @@ const [coffee, setcoffee] = useState({
     
  
     return(
+      <div>
+            <div className={css.dashboardheader}>
+                <div>
+                    <h1>Add New Coffee</h1>
+                </div>
+                <div>
+                    <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorLightBouwn}`}>Back to  Dashboard</Link>
+                </div>
+            </div>
+                 <CofeeForm value={coffee} onChange ={onChange} onSubmit={onSubmit}/>
+        </div>
 
-        <CofeeForm value={coffee} onChange ={onChange} onSubmit={onSubmit}/>
+   
+
     )
 
    

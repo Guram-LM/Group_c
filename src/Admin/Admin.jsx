@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { featchCoffee, featchIngredient } from "../Store/FeathData/feath.thunks"
 import { Outlet, useLocation } from "react-router-dom"
 import { Sidebar } from "./adminSidebar"
+import css from "../style.module.css"
 
 export const Admin = () => {
 
@@ -26,13 +27,13 @@ export const Admin = () => {
     const hideSidebar = location.pathname === "/admin";
 
     return(
-        <div>
-            <div>
+        <div className={css.adminPage}>
+            <div className={css.sidbarsection}>
                 {!hideSidebar && <Sidebar />}
             </div>
             
            
-            <div>
+            <div className={css.outletSection}>
                 <Outlet />
             </div>
             
