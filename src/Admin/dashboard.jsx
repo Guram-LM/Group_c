@@ -66,7 +66,7 @@ export const Dashboard = () => {
                             <div className={css.buttonSection}>
                                     <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorLightBouwn}`}>View More</Link>
                                 <div className={css.buttongap}>
-                                    <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorbrown}`}>Edit</Link>
+                                    <Link to={`/admin/edit/${ingr.id}`}className={`${css.buttonstyle } ${ css.collorbrown}`}>Edit</Link>
                                     <Link  onClick={() => deleteItem({id: ingr.id, resource:"coffee"})}  className={`${css.buttonstyle } ${ css.collorRead}`}>Delete</Link>
                                 </div>
                                 

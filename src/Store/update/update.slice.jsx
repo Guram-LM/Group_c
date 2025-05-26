@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { updateDataThunk } from "./updateDataThunk";
+import { updateDataThunk } from "./updataThunks";
+
 
 const initialState = {
   loading: false,
