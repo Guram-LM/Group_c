@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthorization } from "../context/AuthNontext";
+import css from "../style.module.css"
 
 
 export const ValidateAdmin = () => {
@@ -22,11 +23,13 @@ export const ValidateAdmin = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <h2>შესვლა ადმინის გვერდზე</h2>
-      <input type="email" placeholder="ელ. ფოსტა" autoComplete="current-password" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="პაროლი" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button type="submit">შესვლა</button>
-    </form>
+    <div className={css.validationPage}>
+      <form onSubmit={onSubmit} className={css.validationInpute}>
+        <h2>Login to the admin page</h2>
+        <input type="email" placeholder="ელ. ფოსტა" autoComplete="current-password" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" placeholder="პაროლი" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button className={css.validationButton} type="submit">log in</button>
+      </form>
+    </div>
   );
 };
