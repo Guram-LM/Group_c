@@ -1,8 +1,15 @@
+import { Outlet } from "react-router-dom"
+
 export const Front = () => {
 
     return(
         <div>
-            <h1>this is the Front Page</h1>
+            <div>
+                
+            </div>
+            <div>
+                <Outlet/>
+            </div>
         </div>
     )
 }

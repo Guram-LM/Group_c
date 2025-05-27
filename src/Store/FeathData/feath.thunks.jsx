@@ -15,8 +15,8 @@ export const featchCoffee = createAsyncThunk(
         })
             if(!rouData.ok) throw new Error("Something went wrong");
             const result = await rouData.json()
-            result.map((item) => ({id: item.id, ...item.data}))
-            return ThunkAPI.fulfillWithValue(result)
+            const payload = result.map((item) => ({id: item.id, ...item.data}))
+            return ThunkAPI.fulfillWithValue(payload)
             
         } catch (error) {
 
@@ -39,8 +39,8 @@ export const featchIngredient = createAsyncThunk(
         })
             if(!rouData.ok) throw new Error("Something went wrong");
             const result = await rouData.json()
-            result.map((item) => ({id: item.id, ...item.data}))
-            return ThunkAPI.fulfillWithValue(result)
+            const payload = result.map((item) => ({id: item.id, ...item.data}))
+            return ThunkAPI.fulfillWithValue(payload)
             
         } catch (error) {
 

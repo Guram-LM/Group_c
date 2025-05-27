@@ -6,12 +6,21 @@ import { Dashboard } from "../Admin/dashboard";
 import { UpdatePage } from "../Admin/updatePage";
 import { ValidateAdmin } from "../Admin/ValidateAdmin";
 import { Front } from "../Front/Front";
+import { HomePage } from "../Front/homePage";
 import { ProtectedRoute } from "../Store/component/ProtectedRoute";
 
 export const NavMenu = [
     {
+        path: "/",
         element: <Front/>,
-        path: "/"
+        children: [
+            {
+                element: <HomePage/>,
+                index: true
+            }
+
+        ]
+        
     },
 
     

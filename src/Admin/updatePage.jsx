@@ -34,12 +34,12 @@ export const UpdatePage = () => {
             const foundCoffee = coffee.find(item => String(item.id) === String(id))
             if (foundCoffee) {
                 setValue({
-                    name: foundCoffee.data.name || "",
-                    img: foundCoffee.data.img || "",
-                    price: foundCoffee.data.price || "",
-                    Country: foundCoffee.data.Country || "",
-                    Description: foundCoffee.data.Description || "",
-                    weight: foundCoffee.data.weight || "",
+                    name: foundCoffee.name || "",
+                    img: foundCoffee.img || "",
+                    price: foundCoffee.price || "",
+                    Country: foundCoffee.Country || "",
+                    Description: foundCoffee.Description || "",
+                    weight: foundCoffee.weight || "",
                 })
             }
         }

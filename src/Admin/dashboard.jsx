@@ -31,53 +31,53 @@ export const Dashboard = () => {
 
             
             <div>
-                            <div className={css.dashboardheader}>
-                                <div>
-                                    <h1>Coffee Dashboard</h1>
-                                </div>
-                                <div>
-                                    <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorLightBouwn}`}>Add New Coffee</Link>
-                                </div>
+                <div className={css.dashboardheader}>
+                    <div>
+                        <h1>Coffee Dashboard</h1>
+                    </div>
+                    <div>
+                        <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorLightBouwn}`}>Add New Coffee</Link>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div className={css.coffeeCards}>
+
+                {coffee.map((ingr) => (
+                    <div key={ingr.id} className={css.card}> 
+                        <div className={css.cardImg}>
+                            <img src={ingr.img || coffeeimg} alt="img" />
+                        </div>
+
+
+                        <div className={css.cardContent}>
+                            <h1 className={css.cardTitle}> {ingr.name}</h1>  
+                            <p>{ingr.Description}</p>
+                            <div>
+                                
+                                <p><span>Origin: </span> {ingr.Country}</p> 
+                                <p><span>Caffeine: </span>{ingr.weight}</p> 
+                                <p><span>Price: </span>{ingr.price}</p>
+                            </div>
+        
+                        </div>
+
+                        <div className={css.buttonSection}>
+                                <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorLightBouwn}`}>View More</Link>
+                            <div className={css.buttongap}>
+                                <Link to={`/admin/edit/${ingr.id}`}className={`${css.buttonstyle } ${ css.collorbrown}`}>Edit</Link>
+                                <Link  onClick={() => deleteItem({id: ingr.id, resource:"coffee"})}  className={`${css.buttonstyle } ${ css.collorRead}`}>Delete</Link>
                             </div>
                             
                         </div>
-
-                <div className={css.coffeeCards}>
-
-                    {coffee.map((ingr) => (
-                        <div key={ingr.id} className={css.card}> 
-                            <div className={css.cardImg}>
-                                <img src={ingr.data.img || coffeeimg} alt="img" />
-                            </div>
-
-
-                            <div className={css.cardContent}>
-                                <h1 className={css.cardTitle}> {ingr.data.name}</h1>  
-                                <p>{ingr.data.Description}</p>
-                                <div>
-                                    
-                                    <p><span>Origin: </span> {ingr.data.Country}</p> 
-                                    <p><span>Caffeine: </span>{ingr.data.weight}</p> 
-                                    <p><span>Price: </span>{ingr.data.price}</p>
-                                </div>
-            
-                            </div>
-
-                            <div className={css.buttonSection}>
-                                    <Link to={"/"}  className={`${css.buttonstyle } ${ css.collorLightBouwn}`}>View More</Link>
-                                <div className={css.buttongap}>
-                                    <Link to={`/admin/edit/${ingr.id}`}className={`${css.buttonstyle } ${ css.collorbrown}`}>Edit</Link>
-                                    <Link  onClick={() => deleteItem({id: ingr.id, resource:"coffee"})}  className={`${css.buttonstyle } ${ css.collorRead}`}>Delete</Link>
-                                </div>
-                                
-                            </div>
-                            
-                    </div>
-                    
-                    ))}
-                    
-                    
+                        
                 </div>
+                
+                ))}
+                
+                
+            </div>
      </div>
     )
 }
