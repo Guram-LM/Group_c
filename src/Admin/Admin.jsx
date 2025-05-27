@@ -1,6 +1,4 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { featchCoffee, featchIngredient } from "../Store/FeathData/feath.thunks"
+
 import { Outlet, useLocation } from "react-router-dom"
 import { Sidebar } from "./adminSidebar"
 import css from "../style.module.css"

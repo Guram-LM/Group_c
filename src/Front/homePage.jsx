@@ -57,19 +57,21 @@ export const HomePage = () => {
 
     return(
         <div className={css.coffeeCards}>
+           
+
 
             {coffee.map((ingr) => (
-                <div key={ingr.id} className={css.card}> 
+                <div key={ingr.id} className={css.homePageHomeCard}> 
 
                     <div className={css.cardImg}>
                         <img src={ingr.img || coffeeImg} alt="img" />
                     </div>
 
 
-                    <div className={css.cardContent}>
+                    <div className={css.sectiOnone}>
                         <h1 className={css.cardTitle}> {ingr.name}</h1>  
                         <p className={css.schwarz}>{ingr.Description}</p>
-                        <div>
+                        <div className={css.PriceSection}>
                             
                             <p className={css.schwarz}><span>Origin: </span> {ingr.Country}</p> 
                             <p className={css.schwarz}><span>Caffeine: </span>{ingr.weight}</p> 
@@ -78,11 +80,11 @@ export const HomePage = () => {
     
                     </div>
                     {ingredient.map((ing) => (
-                <div key={ing.id} className={`${css.pStyyle} ${custmOrder.includes(ing.id) ? css.selected : ""}`}
+                <div key={ing.id} className={`${css.secoundSection} ${custmOrder.includes(ing.id) ? css.selected : ""}`}
                     onClick={() => markiren(ing.id)}>
 
                     <p className={css.pStyyle}>{ing.name}</p>
-                    <p className={css.pStyyle}>{ing.price}</p>
+                    <p className={css.pStyyle}>{ing.price} GEL</p>
                 </div>
             ))}
 
@@ -98,8 +100,8 @@ export const HomePage = () => {
 
             
             
+         </div>       
                 
-                
-        </div>
+       
     )
 }
