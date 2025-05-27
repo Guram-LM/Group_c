@@ -4,10 +4,13 @@ import { useEffect, useState } from "react"
 import { featchCoffee, featchIngredient } from "../Store/FeathData/feath.thunks"
 import css from "../style.module.css"
 import { Link } from "react-router-dom"
+import { useBasket } from "../context/FrontContext"
 
 
 
 export const HomePage = () => {
+
+    const { addOrder } = useBasket(); 
 
     const {coffee, ingredient, loading, error} = useSelector(state => state.get)
     const dispatch = useDispatch()
@@ -24,20 +27,23 @@ export const HomePage = () => {
 
 
 
-    const [selectedIngredients, setSelectedIngredients] = useState([])
+    const [custmOrder, setCustomOrder] = useState([])
 
     const markiren = (id) => {
-        setSelectedIngredients(prev =>
+        setCustomOrder(prev =>
             prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
         )
     }
 
-    const handleBuy = (coffeePrice) => {
-        const selected = ingredient.filter(ing => selectedIngredients.includes(ing.id))
-        const ingredientsPrice = selected.reduce((sum, ing) => sum + Number(ing.price || 0), 0)
-        const total = Number(coffeePrice) + ingredientsPrice
-        alert(`Total price: ${total} ₾`)
-    }
+    const order = (coffeeItem) => {
+        const selected = ingredient.filter(ing => custmOrder.includes(ing.id));
+        const ingredientsPrice = selected.reduce((sum, ing) => sum + Number(ing.price || 0), 0);
+        const total = Number(coffeeItem.price) + ingredientsPrice;
+
+        addOrder(coffeeItem, selected, total);
+        setCustomOrder([]);
+        
+    };
 
 
 
@@ -72,7 +78,7 @@ export const HomePage = () => {
     
                     </div>
                     {ingredient.map((ing) => (
-                <div key={ing.id} className={`${css.pStyyle} ${selectedIngredients.includes(ing.id) ? css.selected : ""}`}
+                <div key={ing.id} className={`${css.pStyyle} ${custmOrder.includes(ing.id) ? css.selected : ""}`}
                     onClick={() => markiren(ing.id)}>
 
                     <p className={css.pStyyle}>{ing.name}</p>
@@ -82,7 +88,7 @@ export const HomePage = () => {
 
 
                     <div className={css.buttonSection}>
-                        <button className={`${css.buttonstyle} ${css.collorLightBouwn}`} onClick={() => handleBuy(ingr.price)}>  Buy </button>
+                        <button className={`${css.buttonstyle} ${css.collorLightBouwn}`} onClick={() => order(ingr)}>  Buy </button>
                         <Link to={"/"}className={`${css.buttonstyle } ${ css.collorbrown}`}>information</Link>
                     </div>
                     

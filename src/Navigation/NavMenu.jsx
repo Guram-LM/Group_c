@@ -5,18 +5,30 @@ import { Admin } from "../Admin/Admin";
 import { Dashboard } from "../Admin/dashboard";
 import { UpdatePage } from "../Admin/updatePage";
 import { ValidateAdmin } from "../Admin/ValidateAdmin";
+import { BasketWrapper } from "../context/FrontContext";
+import { Baskit } from "../Front/baskit";
 import { Front } from "../Front/Front";
 import { HomePage } from "../Front/homePage";
 import { ProtectedRoute } from "../Store/component/ProtectedRoute";
 
+const WrappedFront = () => (
+  <BasketWrapper>
+    <Front />
+  </BasketWrapper>
+);
+
 export const NavMenu = [
     {
         path: "/",
-        element: <Front/>,
+        element: <WrappedFront/>,
         children: [
             {
                 element: <HomePage/>,
                 index: true
+            },
+            {
+                element: <Baskit/>,
+                path: "basket"
             }
 
         ]
