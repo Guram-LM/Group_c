@@ -16,7 +16,8 @@
     margin: 10px auto;
     padding: 20px;
     gap:20px;
-    background-color: #fdf6f0
+    background-color: #fdf6f0;
+    height: 100%;
 }
 .card{
     display: flex;
@@ -25,6 +26,7 @@
     border-radius: 10px;
     background-color: white;
     overflow: hidden;
+    height: 530px;
 }
 .cardImg{
     width: 100%;
@@ -59,6 +61,7 @@ color: #242424;
     justify-content: space-between;
     width: 100%;
     padding:0 10px 10px;
+    background-color: white;
 }
 .buttonstyle,
 .validationButton {
@@ -160,6 +163,14 @@ label {
 .sidbarsection{
     display: flex;
     width: 250px;
+    height: 100%;
+    background-color:#6f4439 ;
+}
+.fronysidbarsection{
+    display: flex;
+    width: 250px;
+    height: 100%;
+    background-color: white;
 }
 
 /* sidbar style */
@@ -169,7 +180,7 @@ label {
     gap:20px ;
     height: 100%;
     width:500px ;
-    background-color: #785449 ;
+    background-color: #785449;
 }
 .sidbarContant{
     display: flex;
@@ -363,10 +374,6 @@ label {
     padding: 10px;
     gap: 10px;
 }
-.pStyyle{
-    color: #242424;
-}
-
 
 .pStyyle {
     padding: 8px;
@@ -390,8 +397,8 @@ label {
 .baskitImg{
     position: relative;
     cursor: pointer;
-
 }
+
 .basketCount {
   position: absolute;
   top: -5px;
@@ -403,4 +410,196 @@ label {
   border-radius: 50%;
   font-weight: bold;
 }
+.sidebarColor{
+ background-color: white;
+ height: 100vh;
+ padding: 10px;
+}
+.logoTitle{
+    color: #6e4b3a; 
+    font-size: 28px;
+    padding-left: 10px;
     
+}
+
+.sidbarLogo{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    width: 80px;
+    height: 70px;
+}
+.cap,
+.basetimg{
+   width: 40px;
+    height: 40px;  
+}
+.capimg,
+.basketSec{
+    width: 100%;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    background-color: #e9bca8;
+    border-radius: 20px;
+}
+.pStyle{
+    color:#242424;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 20px;
+    
+}
+
+.fontOutlet{
+background-color: rgb(231, 204, 204);
+width: 100vw;
+height: 100%;
+
+}
+
+/* კალათის სტილები */
+.basketPage{
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin: 100px auto 20px;
+    border-radius: 20px;
+    background-color: white;
+    gap:20px;
+}
+.basketImgSection{
+    display: flex;
+    width: 30%;
+    overflow: hidden;
+    border-radius: 20px 0 0 20px;
+}
+.basketImgSection img {
+    width: 100%;
+    object-fit: cover;
+}
+.orderCard{
+    display: flex;
+    width: 100%;
+    gap:20px;
+    padding: 20px;
+}
+.CofeeNamePrice{
+    align-items: center;
+    display: flex;
+    width: 100%;
+    gap:20px;
+}
+.assitionalIngredient{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+
+}
+.sum{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #a0745f;
+    border-radius: 20px;
+    width: 150px;
+    color: white;
+    
+}
+.basketButtonSection{
+    margin: 20px auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap:30px;
+}
+.basketbutton{
+    display: inline-block;
+    text-align: center;
+    border-radius: 20px;
+    padding: 5px 15px;
+    color: white;
+}
+.basketbuttonRed{
+    background-color: rgb(230, 48, 48);
+}
+.basketbuttonbraun{
+     background-color: #a0745f;
+     padding: 5px 22px;
+}
+.additionalIngredient{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+/* hompage */
+
+.sectiOnone{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background: white;
+    transition: opacity 0.3s ease-in-out;
+    gap:10px;
+  
+}
+.PriceSection{
+display: flex;
+flex-direction: column;
+gap:10px;
+}
+.homePageHomeCard:hover .sectiOnone {
+    margin-top: 140px;
+}
+.secoundSection  {
+    display: none;
+    padding: 15px;
+    transition: opacity 0.3s ease-in-out;
+    color:#8f6b5b;
+   
+    
+}
+.homePageHomeCard:hover .secoundSection {
+    display: flex;
+    flex-direction: column;
+}
+.homePageHomeCard:hover .cardImg {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    border: 10px solid gray;
+    border-radius: 50%;
+}
+.homePageHomeCard:hover{
+    height:auto ;
+}
+.cardImg{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+.cardImg img{
+     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+.homePageHomeCard {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    height: 500px;
+    background-color: white;
+} 

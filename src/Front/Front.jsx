@@ -6,10 +6,10 @@ export const Front = () => {
 
     return(
         <div className={css.adminPage}>
-            <div className={css.sidbarsection}>
+            <div className={css.fronysidbarsection}>
                 <FrontSidebar/>
             </div>
-            <div className={css.outletSection}>
+            <div className={css.fontOutlet}>
                 <Outlet/>
             </div>
         </div>
