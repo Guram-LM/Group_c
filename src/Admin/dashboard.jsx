@@ -11,13 +11,12 @@ export const Dashboard = () => {
 
     const {deleteItem, error:deleteError, loading:deleteLoading} = useDeleteHook("coffee")
 
-    const {coffee,ingredient, loading, error } = useSelector(state => state.get)
+    const {coffee, loading, error } = useSelector(state => state.get)
     const dispatch =useDispatch()
 
     useEffect(() => {
         dispatch(featchCoffee("coffee"))
     },[] )
-    console.log(coffee)
 
 
 
@@ -27,10 +26,10 @@ export const Dashboard = () => {
 
 
     return(
-        <div>
+        <>
 
             
-            <div>
+            
                 <div className={css.dashboardheader}>
                     <div>
                         <h1>Coffee Dashboard</h1>
@@ -40,9 +39,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
                 
-            </div>
-
-
+           
 
 
 
@@ -50,49 +47,34 @@ export const Dashboard = () => {
 
 
             <div className={css.tableWrapper}>
-            <div className={css.tableHeader}>
-                <p className={css.cell}>ID</p>
-                <p className={css.cell}>Name</p>
-                <p className={css.cell}>Origin</p>
-                <p className={css.cell}>Caffeine</p>
-                <p className={css.cell}>Price</p>
-                <p className={css.cell}>Actions</p>
-            </div>
-
-            <div className={css.tableRow}>
-                <p className={css.cell}>cof_sample1</p>
-                <p className={css.cell}>Ethiopian Yirgacheffe</p>
-                <p className={css.cell}>Ethiopia</p>
-                <p className={css.cell}>120mg</p>
-                <p className={css.cell}>$4.99</p>
-                <div className={css.cell}>
-                <button className={`${css.btn} ${css.view}`}>View</button>
-                <button className={`${css.btn} ${css.edit}`}>Edit</button>
-                <button className={`${css.btn} ${css.delete}`}>Delete</button>
+                <div className={css.tableHeader}>
+                    <p className={css.cell}>ID</p>
+                    <p className={css.cell}>Name</p>
+                    <p className={css.cell}>Origin</p>
+                    <p className={css.cell}>Caffeine</p>
+                    <p className={css.cell}>Price</p>
+                    <p className={css.cell}>Actions</p>
                 </div>
+
+
+
+                {coffee.map((coff) => (
+                    <div key={coff.id} className={css.tableRow}>
+                        
+                        <p className={css.cell}>{coff.id} </p>
+                        <p className={css.cell}>{coff.name}</p>
+                        <p className={css.cell}>{coff.Country}</p>
+                        <p className={css.cell}>{coff.weight} Mg.</p>
+                        <p className={css.cell}>{coff.price} GEL</p>
+                        <div className={css.cell}>
+                        <button className={`${css.btn} ${css.view}`}>View</button>
+                        <Link to={`/admin/edit/${coff.id}`} className={`${css.btn} ${css.edit}`}>Edit</Link>
+                        <button onClick={() => deleteItem({id: coff.id, resource:"coffee"})} className={`${css.btn} ${css.delete}`}>Delete</button>
+                        </div>
+                    </div>
+                ))}
+               
             </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             <div className={css.coffeeCards}>
@@ -110,7 +92,7 @@ export const Dashboard = () => {
                             <div>
                                 
                                 <p><span>Origin: </span> {ingr.Country}</p> 
-                                <p><span>Caffeine: </span>{ingr.weight}</p> 
+                                <p><span>Caffeine: </span>{ingr.weight} Mg.</p> 
                                 <p><span>Price: </span>{ingr.price}</p>
                             </div>
         
@@ -131,6 +113,6 @@ export const Dashboard = () => {
                 
                 
             </div>
-     </div>
+     </>
     )
 }

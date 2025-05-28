@@ -51,7 +51,7 @@ const [coffee, setcoffee] = useState({
     
  
     return(
-      <div>
+      <div className={css.addCoffeeSection}>
             <div className={css.dashboardheader}>
                 <div>
                     <h1>Add New Coffee</h1>
