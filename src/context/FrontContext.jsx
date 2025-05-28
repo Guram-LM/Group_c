@@ -18,7 +18,7 @@ export const BasketWrapper = ({ children }) => {
     };
 
     return (
-        <BasketContext.Provider value={{ basket, addOrder }}>
+        <BasketContext.Provider value={{ basket, addOrder, setBasket }}>
             {children}
         </BasketContext.Provider>
     );

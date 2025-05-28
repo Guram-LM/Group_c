@@ -5,6 +5,7 @@ import { updateDataThunk } from "../Store/update/updataThunks"
 import { useParams } from "react-router-dom"
 import { featchCoffee } from "../Store/FeathData/feath.thunks"
 import css from "../style.module.css"
+import { LoaaderPage } from "../loading"
 
 export const UpdatePage = () => {
     const { id } = useParams()
@@ -69,7 +70,7 @@ export const UpdatePage = () => {
         }))
     }
 
-    if (loading) return <h2>Updating...</h2>
+    if (loading) return <LoaaderPage/>
     if (error) return <h2>Error: {error.message}</h2>
 
     return (

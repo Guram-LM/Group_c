@@ -1,16 +1,60 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useBasket } from "../context/FrontContext";
 import css from "../style.module.css"
+import urika from "../assets/4.png"
+import { useEffect, useState } from "react";
+import { Succssful } from "./successful";
 
 export const Baskit = () => {
-     const { basket } = useBasket();
+
+    const navigate = useNavigate()
+     const { basket, setBasket } = useBasket();
+
+     const delBasket = () => {
+        setBasket([])
+     }
+
+
+    const [page, setPage] = useState(false)
+
+    useEffect(() => {
+        let kill
+        
+        if(page){
+          
+          kill = setTimeout(() => {
+            setPage(false)
+          }, 1000) 
+          setTimeout(() => {
+            delBasket()
+            navigate("/")
+          }, 1010)
+          
+        }
+        
+        return () => clearTimeout(kill)
+
+    }, [page])
+
+
+    const onClick = (e) => {
+        e.preventDefault()
+        setPage(true)
+    }
+
+
+    if(page) return <Succssful/>
 
     return(
       <>
         <div className={css.basketPage}>
 
         {basket.length === 0 ? (
-          <p>კალათი ცარიელი</p>
+         
+            <div className={css.orderCard}>
+                <img className={css.urikaImg} src={urika} alt="urika" />
+            </div>
+          
         ) : (
           basket.map(order => (
             <div key={order.id} className={css.orderCard}>
@@ -29,7 +73,7 @@ export const Baskit = () => {
 
                       {order.ingredients.length > 0 ? (
                         <div className={css.additionalIngredient}>
-                          <h4>ინგრედიენტი:</h4>
+                          <h4>ingredient:</h4>
                           <ul>
                             {order.ingredients.map(ing => (
                               <li key={ing.id}>
@@ -39,21 +83,29 @@ export const Baskit = () => {
                           </ul>
                         </div>
                       ) : (
-                        <p>დამატებითი ინგრედიენტების გარეშე</p>
+                        <p>Without Ingredients</p>
                         
                       )}
                       <div className={css.sum}> 
-                          <p>ჯამი: {order.totalPrice} ₾</p>
+                          <p>sum: {order.totalPrice} ₾</p>
                       </div>
               </div>
             </div>
           ))
         )}
       </div>
+      {basket.length !== 0 ? (
+
       <div className={`${css.basketPage} ${css.basketButtonSection}`}>
-        <Link className={`${css.basketbuttonRed} ${ css.basketbutton}`} to= {"/"}>გაუქმება</Link>
-        <Link className={`${css.basketbuttonbraun} ${css.basketbutton}`}> შეძენა</Link>
+        <Link className={`${css.basketbuttonRed} ${ css.basketbutton}`} onClick={delBasket}>Cansel</Link>
+        <Link className={`${css.basketbuttonbraun} ${css.basketbutton}`} onClick={onClick}> Bay</Link>
       </div>
+      ): (
+      <div className={`${css.basketPage} ${css.basketButtonSection}`}>
+          <Link className={`${css.basketbuttonbraun} ${css.basketbutton}`} to={"/"}>Go Back</Link>
+      </div>
+      )}
+      
      </>
     )
 }

@@ -6,6 +6,7 @@ import css from "../style.module.css"
 import { Link } from "react-router-dom"
 import { featchIngredient } from "../Store/FeathData/feath.thunks"
 import { useDeleteHook } from "../hook/deleteHok"
+import { LoaaderPage } from "../loading"
 
 export const AddIngredient = () => {
 
@@ -61,7 +62,7 @@ export const AddIngredient = () => {
 
 
 
-    if(loading || getLoader || deleteLoading) return <h1> Loading ...</h1>
+    if(loading || getLoader || deleteLoading) return <LoaaderPage/>
     if(error) return <h1>{error.message}</h1>
     
  

@@ -5,6 +5,7 @@ import { featchCoffee, featchIngredient } from "../Store/FeathData/feath.thunks"
 import css from "../style.module.css"
 import { Link } from "react-router-dom"
 import { useBasket } from "../context/FrontContext"
+import { LoaaderPage } from "../loading"
 
 
 
@@ -44,15 +45,9 @@ export const HomePage = () => {
         setCustomOrder([]);
         
     };
-
-
-
-
-
-
     
 
-    if(loading) return <h1> Loading ...</h1>
+    if(loading) return <LoaaderPage/>
     if(error) return <h1>{error.message}</h1>
 
     return(
@@ -106,7 +101,7 @@ export const HomePage = () => {
 
 
                         <div className={css.buttonSection}>
-                            <button className={`${css.buttonstyle} ${css.collorLightBouwn}`} onClick={() => order(ingr)}>  Buy </button>
+                            <button className={`${css.buttonstyle} ${css.collorLightBouwn}`} onClick={() => order(ingr)}> Buy </button>
                             <Link to={"/"}className={`${css.buttonstyle } ${ css.collorbrown}`}>information</Link>
                         </div>
                         

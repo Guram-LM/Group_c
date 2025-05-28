@@ -5,6 +5,7 @@ import css from "../style.module.css"
 import { Link } from "react-router-dom"
 import coffeeimg from "../assets/coffee.jpeg"
 import { useDeleteHook } from "../hook/deleteHok"
+import { LoaaderPage } from "../loading"
 
 
 export const Dashboard = () => {
@@ -20,7 +21,7 @@ export const Dashboard = () => {
 
 
 
-    if(loading || deleteLoading) return <h1> Loading ...</h1>
+    if(loading || deleteLoading) return <LoaaderPage/>
     if(error) return <h1>{error.message}</h1>
 
 

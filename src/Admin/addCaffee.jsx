@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { postThunk } from "../Store/postData/post.thunks"
 import css from "../style.module.css"
 import { Link } from "react-router-dom"
+import { LoaaderPage } from "../loading"
 
 export const AddCaffee = () => {
 
@@ -46,7 +47,7 @@ const [coffee, setcoffee] = useState({
     alert("დაფიქსირდა შეცდომა: " + (resultAction.payload || "უცნობი შეცდომა"));
   }
 };
-    if(loading) return <h1> Loading ...</h1>
+    if(loading) return <LoaaderPage/>
     if(error) return <h1>{error.message}</h1>
     
  

@@ -66,7 +66,7 @@ color: #242424;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding:0 10px 10px;
+    padding:10px 10px 10px;
     background-color: white;
 }
 .buttonstyle,
@@ -591,7 +591,7 @@ label {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
-    height: 500px;
+    height: 450px;
     background-color: white;
 } 
 
@@ -652,6 +652,45 @@ label {
     color:#8f6b5b;
 }
 
+ /* loader */
+ .container{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(197, 193, 193);
+    justify-content: center;
+    align-items: center;
+ }
+ .loaderimg {
+     display: flex;
+     width: 100px;
+     height: 100px;
+ }
+ .urikaImg{
+    display: flex;
+    width: 450px;
+    margin: 0 auto;
+ }
+ .succssesPage{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    justify-content: center;
+    align-items: center;
+ }
+ .succssesmMsage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+ }
+.succssesIcon{
+    width: 40px;
+}
+.successTitle{
+    font-size: 42px;
+}
 
 
 

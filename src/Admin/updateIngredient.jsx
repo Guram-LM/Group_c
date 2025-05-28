@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { featchIngredient } from "../Store/FeathData/feath.thunks"
 import { useParams } from "react-router-dom"
 import css from "../style.module.css"
+import { LoaaderPage } from "../loading"
 
 export const UpdataIngredient = () => {
 
@@ -66,7 +67,7 @@ export const UpdataIngredient = () => {
             }))
         }
     
-        if (loading) return <h2>Updating...</h2>
+        if (loading) return <LoaaderPage/>
         if (error) return <h2>Error: {error.message}</h2>
 
 
