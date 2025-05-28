@@ -4,12 +4,13 @@ import { useEffect, useState } from "react"
 import { updateDataThunk } from "../Store/update/updataThunks"
 import { useParams } from "react-router-dom"
 import { featchCoffee } from "../Store/FeathData/feath.thunks"
+import css from "../style.module.css"
 
 export const UpdatePage = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
 
-    const { loading, error, updatedItem } = useSelector(state => state.update)
+    const { loading, error} = useSelector(state => state.update)
     const { coffee } = useSelector(state => state.get)
 
     const [value, setValue] = useState({
@@ -72,8 +73,8 @@ export const UpdatePage = () => {
     if (error) return <h2>Error: {error.message}</h2>
 
     return (
-        <div>
-            <h1>Edit Coffee</h1>
+        <div className={css.updadaCoffePage}>
+            <h1 className={css.adminTitleStyle}>Edit Coffee</h1>
             <CofeeForm value={value} onChange={onChange} onSubmit={onSubmit} />
         </div>
     )

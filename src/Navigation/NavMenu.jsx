@@ -3,6 +3,7 @@ import { AddCaffee } from "../Admin/addCaffee";
 import { AddIngredient } from "../Admin/addIngredient";
 import { Admin } from "../Admin/Admin";
 import { Dashboard } from "../Admin/dashboard";
+import { UpdataIngredient } from "../Admin/updateIngredient";
 import { UpdatePage } from "../Admin/updatePage";
 import { ValidateAdmin } from "../Admin/ValidateAdmin";
 import { BasketWrapper } from "../context/FrontContext";
@@ -68,11 +69,19 @@ export const NavMenu = [
                 </ProtectedRoute>
                 ),
             },
-                 {
+            {
                 path: "edit/:id",
                 element: (
                 <ProtectedRoute>
                     <UpdatePage />
+                </ProtectedRoute>
+                ),
+            },
+            {
+                path: "ingredit/:id",
+                element: (
+                <ProtectedRoute>
+                    <UpdataIngredient />
                 </ProtectedRoute>
                 ),
             },

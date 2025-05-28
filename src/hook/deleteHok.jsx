@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { deleteThunk } from "../Store/deleteData/delete.thunks"
 import { useEffect } from "react"
-import { featchCoffee } from "../Store/FeathData/feath.thunks"
+import { featchCoffee, featchIngredient } from "../Store/FeathData/feath.thunks"
 
 export const useDeleteHook = (resource) =>  {
     const dispatch = useDispatch()
@@ -15,6 +15,7 @@ export const useDeleteHook = (resource) =>  {
     useEffect(() => {
         if(!loading){
             dispatch(featchCoffee(resource))
+            dispatch(featchIngredient(resource))
         }
 
     },[loading])
